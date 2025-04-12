@@ -1,4 +1,4 @@
-<!doctype html>
+   <!doctype html>
 <html lang="id" data-bs-theme="dark">
 
 <head>
@@ -479,15 +479,78 @@
 
 
 
-    <!-- Theme Button -->
-    <button type="button" id="button-theme" style="display: none;" class="btn bg-dark border btn-sm rounded-circle btn-theme position-fixed" onclick="theme.change()">
-        <i class="fa-solid fa-circle-half-stroke"></i>
-    </button>
+<!-- Loading Page -->
+<div class="loading-page bg-black" id="loading" style="opacity: 1;">
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh !important;">
+        <div class="w-75 text-center">
+            <img class="img-fluid mb-3" src="./assets/images/icon-192x192.png" alt="icon" style="width: 3.5rem;">
+            <div class="progress" role="progressbar" style="height: 0.5rem;">
+                <div class="progress-bar" id="progress-bar" style="width: 0%; transition: width 0.5s;"></div>
+            </div>
+            <small class="mt-1 text-light" id="progress-info">Loading...</small>
+            <noscript>
+                <small class="mt-1 text-danger">Sorry, this invitation requires JavaScript to work</small>
+            </noscript>
+        </div>
+    </div>
+    <div class="text-center position-fixed w-100" style="bottom: 8%; left: 0;">
+        <div class="d-flex flex-column">
+            <small class="text-secondary">from</small>
+            <small class="text-light"><i class="fa-brands fa-github me-1"></i>dewanakl</small>
+        </div>
+    </div>
+</div>
 
-    <!-- Audio Button -->
-    <button type="button" id="button-music" style="display: none;" class="btn bg-dark border btn-sm rounded-circle btn-music position-fixed" onclick="audio.button()" data-url="./assets/music/sound.mp3" offline-disabled>
-        <i class="fa-solid fa-circle-pause spin-button"></i>
-    </button>
+<!-- Welcome Page -->
+<div class="welcome-page bg-black" id="welcome" style="opacity: 0; display: none;">
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh !important;">
+        <div class="text-center">
+            <h2 class="font-esthetic mb-4" style="font-size: 2.5rem;">The Wedding Of</h2>
+            <img src="./assets/images/bg.png" alt="background" class="img-center-crop rounded-circle border border-3 border-light shadow mb-4 mx-auto">
+            <h2 class="font-esthetic mb-4" style="font-size: 2.5rem;">Nanda &amp; April</h2>
+            <div id="guest-name" data-message="Kepada Yth Bapak/Ibu/Saudara/i"></div>
+            <button type="button" class="btn btn-light shadow rounded-4 mt-3" onclick="guest.open(this)">
+                <i class="fa-solid fa-envelope-open me-2"></i>Open Invitation
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Theme & Music Buttons -->
+<button type="button" id="button-theme" style="display: none;" class="btn bg-dark border btn-sm rounded-circle btn-theme position-fixed" onclick="theme.change()">
+    <i class="fa-solid fa-circle-half-stroke"></i>
+</button>
+
+<button type="button" id="button-music" style="display: none;" class="btn bg-dark border btn-sm rounded-circle btn-music position-fixed" onclick="audio.button()" data-url="./assets/music/sound.mp3">
+    <i class="fa-solid fa-circle-pause spin-button"></i>
+</button>
+
+<!-- Script to handle loading -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let progressBar = document.getElementById('progress-bar');
+        let welcomePage = document.getElementById('welcome');
+        let loadingPage = document.getElementById('loading');
+        let progress = 0;
+
+        let interval = setInterval(() => {
+            progress += 10;
+            progressBar.style.width = progress + '%';
+
+            if (progress >= 100) {
+                clearInterval(interval);
+                // Hide loading, show welcome
+                loadingPage.style.opacity = 0;
+                setTimeout(() => {
+                    loadingPage.style.display = 'none';
+                    welcomePage.style.display = 'block';
+                    welcomePage.style.opacity = 1;
+                }, 500);
+            }
+        }, 200); // Simulate loading speed
+    });
+</script>
+
 
     <!-- Offline -->
     <div class="fixed-top" id="offline-mode" style="opacity: 0; z-index: 1057;">
