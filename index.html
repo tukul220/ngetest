@@ -475,45 +475,31 @@
         </section>
     </main>
 
+    <!-- Welcome Page -->
+    <div class="loading-page bg-black" id="welcome" style="opacity: 1;">
+        <div class="d-flex justify-content-center align-items-center" style="height: 100vh !important;">
+            <div class="text-center">
+                <h2 class="font-esthetic mb-4" style="font-size: 2.5rem;">The Wedding Of</h2>
 
+                <img src="./assets/images/bg.png" alt="background" class="img-center-crop rounded-circle border border-3 border-light shadow mb-4 mx-auto">
 
+                <h2 class="font-esthetic mb-4" style="font-size: 2.5rem;">Wahyu &amp; Riski</h2>
+                <div id="guest-name" data-message="Kepada Yth Bapak/Ibu/Saudara/i"></div>
 
-
-<!-- Welcome Page with fade-in animation -->
-<div class="welcome-page bg-black" id="welcome" style="opacity: 0; transition: opacity 1s;">
-    <div class="d-flex justify-content-center align-items-center" style="height: 100vh !important;">
-        <div class="text-center">
-            <h2 class="font-esthetic mb-4" style="font-size: 2.5rem;">The Wedding Of</h2>
-            <img src="./assets/images/bg.png" alt="background" class="img-center-crop rounded-circle border border-3 border-light shadow mb-4 mx-auto">
-            <h2 class="font-esthetic mb-4" style="font-size: 2.5rem;">Nanda &amp; April</h2>
-            <div id="guest-name" data-message="Kepada Yth Bapak/Ibu/Saudara/i"></div>
-            <button type="button" class="btn btn-light shadow rounded-4 mt-3" onclick="guest.open(this)">
-                <i class="fa-solid fa-envelope-open me-2"></i>Open Invitation
-            </button>
+                <button type="button" class="btn btn-light shadow rounded-4 mt-3" onclick="guest.open(this)"><i class="fa-solid fa-envelope-open me-2"></i>Open Invitation</button>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Theme & Music Buttons -->
-<button type="button" id="button-theme" style="display: none;" class="btn bg-dark border btn-sm rounded-circle btn-theme position-fixed" onclick="theme.change()">
-    <i class="fa-solid fa-circle-half-stroke"></i>
-</button>
+    <!-- Theme Button -->
+    <button type="button" id="button-theme" style="display: none;" class="btn bg-dark border btn-sm rounded-circle btn-theme position-fixed" onclick="theme.change()">
+        <i class="fa-solid fa-circle-half-stroke"></i>
+    </button>
 
-<button type="button" id="button-music" style="display: none;" class="btn bg-dark border btn-sm rounded-circle btn-music position-fixed" onclick="audio.button()" data-url="./assets/music/sound.mp3">
-    <i class="fa-solid fa-circle-pause spin-button"></i>
-</button>
-
-<!-- Animation Script -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const welcome = document.getElementById("welcome");
-        // Trigger fade-in animation
-        setTimeout(() => {
-            welcome.style.opacity = 1;
-        }, 300); // Delay sedikit agar animasinya terasa smooth
-    });
-</script>
-
+    <!-- Audio Button -->
+    <button type="button" id="button-music" style="display: none;" class="btn bg-dark border btn-sm rounded-circle btn-music position-fixed" onclick="audio.button()" data-url="./assets/music/sound.mp3" offline-disabled>
+        <i class="fa-solid fa-circle-pause spin-button"></i>
+    </button>
 
     <!-- Loading Page -->
     <div class="loading-page bg-black" id="loading" style="opacity: 1;">
@@ -536,7 +522,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- Offline -->
     <div class="fixed-top" id="offline-mode" style="opacity: 0; z-index: 1057;">
