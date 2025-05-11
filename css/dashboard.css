@@ -27,7 +27,7 @@
 }
 
 .btn-theme-dark {
-    color: var(--bs-dark);
+    color: var(--bs-red);
     background-color: var(--bs-gray-100);
 }
 
@@ -42,12 +42,12 @@
 }
 
 .btn-theme-dark:hover {
-    color: var(--bs-dark);
+    color: var(--bs-red);
     background-color: var(--bs-gray-300);
 }
 
 .btn-theme-dark:focus {
-    color: var(--bs-dark);
+    color: var(--bs-red);
 }
 
 .btn-theme-light:focus {
