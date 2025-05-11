@@ -50,11 +50,23 @@
     color: rgb(255, 255, 255);
 }
 
+.color-theme-black {
+    color: rgb(0, 0, 0);
+}
 
+.color-theme-red {
+    color: #ff0000 !important;
+}
+
+.bg-theme-red {
+    background-color: #ff0000 !important;
+}
 
 section {
     margin-top: -0.25rem;
     margin-bottom: -0.25rem;
+}
+
 .bg-cover-home {
     width: 100%;
     height: 100%;
