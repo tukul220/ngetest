@@ -2,7 +2,7 @@ import { storage } from './storage.js';
 
 export const theme = (() => {
 
-    const THEME_RED = '#FFC0CB ';
+    const THEME_DARK = '#FFC0CB ';
     const THEME_LIGHT = 'light';
     const themeColors = {
         '#000000': '#FFFFFF',
@@ -24,26 +24,26 @@ export const theme = (() => {
 
         if (element.classList.contains('btn-theme-light')) {
             element.classList.remove('btn-theme-light');
-            element.classList.add('btn-theme-red');
+            element.classList.add('btn-theme-dark');
         }
 
-        if (element.classList.contains('bg-red')) {
-            element.classList.remove('bg-red');
+        if (element.classList.contains('bg-dark')) {
+            element.classList.remove('bg-dark');
             element.classList.add('bg-light');
         }
 
-        if (element.classList.contains('bg-red')) {
-            element.classList.remove('bg-red');
+        if (element.classList.contains('bg-black')) {
+            element.classList.remove('bg-black');
             element.classList.add('bg-white');
         }
 
-        if (element.classList.contains('bg-theme-red')) {
-            element.classList.remove('bg-theme-red');
+        if (element.classList.contains('bg-theme-dark')) {
+            element.classList.remove('bg-theme-dark');
             element.classList.add('bg-theme-light');
         }
 
-        if (element.classList.contains('color-theme-red')) {
-            element.classList.remove('color-theme-red');
+        if (element.classList.contains('color-theme-black')) {
+            element.classList.remove('color-theme-black');
             element.classList.add('color-theme-white');
         }
 
@@ -52,8 +52,8 @@ export const theme = (() => {
             element.classList.add('btn-outline-dark');
         }
 
-        if (element.classList.contains('bg-cover-red')) {
-            element.classList.remove('bg-cover-red');
+        if (element.classList.contains('bg-cover-black')) {
+            element.classList.remove('bg-cover-black');
             element.classList.add('bg-cover-white');
         }
     };
@@ -105,7 +105,7 @@ export const theme = (() => {
         document.documentElement.setAttribute('data-bs-theme', THEME_LIGHT);
 
         const now = document.querySelector('meta[name="theme-color"]').getAttribute('content');
-        const elements = document.querySelectorAll('.text-light, .btn-theme-light, .bg-red, .bg-red, .bg-theme-red, .color-theme-black, .btn-outline-light, .bg-cover-black');
+        const elements = document.querySelectorAll('.text-light, .btn-theme-light, .bg-dark, .bg-black, .bg-theme-dark, .color-theme-black, .btn-outline-light, .bg-cover-black');
 
         let countChange = 0;
         elements.forEach((el) => {
@@ -133,7 +133,7 @@ export const theme = (() => {
         document.documentElement.setAttribute('data-bs-theme', THEME_DARK);
 
         const now = document.querySelector('meta[name="theme-color"]').getAttribute('content');
-        const elements = document.querySelectorAll('.text-dark, .btn-theme-red, .bg-red, .bg-white, .bg-theme-light, .color-theme-white, .btn-outline-dark, .bg-cover-white');
+        const elements = document.querySelectorAll('.text-dark, .btn-theme-dark, .bg-light, .bg-white, .bg-theme-light, .color-theme-white, .btn-outline-dark, .bg-cover-white');
 
         let countChange = 0;
         elements.forEach((el) => {
@@ -157,20 +157,20 @@ export const theme = (() => {
     };
 
     const isDarkMode = (onDark = null, onLight = null) => {
-        const status = theme.get('active') === THEME_RED;
+        const status = theme.get('active') === THEME_DARK;
 
         if (onDark && onLight) {
-            return status ? onRed : onLight;
+            return status ? onDark : onLight;
         }
 
         return status;
     };
 
     const change = () => {
-        if (isRedMode()) {
+        if (isDarkMode()) {
             onLight();
         } else {
-            onRed();
+            onDark();
         }
     };
 
@@ -186,9 +186,9 @@ export const theme = (() => {
         const observerTop = new IntersectionObserver((es) => {
             es.forEach((e) => {
                 if (e.isIntersecting) {
-                    const themeColor = ['bg-red', 'bg-white'].some((i) => e.target.classList.contains(i))
-                        ? isRedkMode('#000000', '#FFFFFF')
-                        : isRedkMode('#212529', '#F8F9FA');
+                    const themeColor = ['bg-black', 'bg-white'].some((i) => e.target.classList.contains(i))
+                        ? isDarkMode('#000000', '#FFFFFF')
+                        : isDarkMode('#212529', '#F8F9FA');
 
                     document.querySelector('meta[name="theme-color"]').setAttribute('content', themeColor);
                 }
@@ -224,7 +224,7 @@ export const theme = (() => {
         observerDark = new IntersectionObserver((es, o) => {
             es.forEach((e) => {
                 if (e.isIntersecting) {
-                    toRed(e.target);
+                    toDark(e.target);
                 }
             });
 
