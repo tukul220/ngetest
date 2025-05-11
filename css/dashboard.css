@@ -5,7 +5,7 @@
 }
 
 ::-webkit-scrollbar-track {
-    background-color: red;
+    background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -27,27 +27,27 @@
 }
 
 .btn-theme-dark {
-    color: var(--bs-red);
-    background-color: var(--bs-red-100);
+    color: var(--bs-dark);
+    background-color: var(--bs-gray-100);
 }
 
 .btn-theme-light {
     color: var(--bs-light);
-    background-color: var(--bs-red-800);
+    background-color: var(--bs-gray-800);
 }
 
 .btn-theme-light:hover {
     color: var(--bs-light);
-    background-color: var(--bs-red-600);
+    background-color: var(--bs-gray-600);
 }
 
 .btn-theme-dark:hover {
-    color: var(--bs-red);
-    background-color: var(--bs-red-300);
+    color: var(--bs-dark);
+    background-color: var(--bs-gray-300);
 }
 
 .btn-theme-dark:focus {
-    color: var(--bs-red);
+    color: var(--bs-dark);
 }
 
 .btn-theme-light:focus {
